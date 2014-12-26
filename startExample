@@ -1,0 +1,5 @@
+./bro -m consumer&
+python -m SimpleHTTPServer&
+midori http://127.0.0.1:8000 &
+sleep 10
+sudo mplayer -ao alsa:device=hw -af equalizer=0:0:0:0:0:0:0:0:0:0 -volume 60 http://imagine.1stepstream.com:8000/aac| while IFS= read -r line; do echo $line |./bro -m publisher -e default ; done
