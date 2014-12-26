@@ -22,7 +22,7 @@ If you are not usig any other exchanges on your system then it is safe to ommit 
     mypubscript | ./bro -m publisher -e example
   
 ```
-The first command will start the websockedBro consumer in that phase you sould be able to 
+The first command will start the websockedBro consumer. In this phase you sould be able to  connect to the websocketd server which will send a message to your websocket cient as soon as it receives a message from a publisher.
 
 The second command is used to pipe the stdout of your script to the bro publisher so that you can see it in your browser connected to websocketd
 
