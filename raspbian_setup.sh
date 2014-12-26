@@ -1,6 +1,9 @@
 #!/bin/sh
-sudo rpm --import http://www.rabbitmq.com/rabbitmq-signing-key-public.asc
-sudo yum install rabbitmq-server--1.noarch.rpm
+deb http://www.rabbitmq.com/debian/ testing main
+wget http://www.rabbitmq.com/rabbitmq-signing-key-public.asc
+sudo apt-key add rabbitmq-signing-key-public.asc
+rm rabbitmq-signing-key-public.asc
+sudo apt-get install rabbitmq-server
 sudo cp ./rabbitmq.config /etc/rabbitmq/rabbitmq.config
 sudo pip install pika==0.9.8
 echo "now we will test if everything works fine..."
