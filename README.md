@@ -1,7 +1,7 @@
 #websocketdBro
 ####A wobsocketd broadcaster based on AMQ and webocketd.
 
- WebsocketdBro extends websocketd so that we can run only one instance of the script and broadcast the results to all the clientsthet connectto the websocketd server, an issue that attracted a lot of dicussion in websocketd's official repo. 
+ WebsocketdBro extends websocketd so that we can run only one instance of the script and broadcast the results to all the clients that connectto the websocketd server, an issue that attracted a lot of dicussion in websocketd's official repo. 
 ##Installation
 If you are using raspbian(or any kind of debian system using arm architecture) simply run:
 ```raspbian_setup.sh ```
