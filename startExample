@@ -1,5 +1,5 @@
 #!/bin/bash
-./bro -m consumer&
+./bro -m consumer &
 python -m SimpleHTTPServer&
 midori http://127.0.0.1:8000 &
 sleep 10
