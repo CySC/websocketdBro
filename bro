@@ -1,4 +1,5 @@
 #!/bin/bash
+DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd );
 mode=none
 exchange=default
 exchange=""
@@ -32,9 +33,9 @@ while getopts :m:e:r:c:k:j opt; do
 done
 if [ $mode == "publisher" ];
 then
-	./websocketdBro/"$mode".py $exchange $rooting_key
+	"$DIR"/websocketdBro/"$mode".py $exchange $rooting_key
 fi
 if [[ $mode == "consumer" ]];
 then
-	 websocketd --port=7777 $cert $key ./websocketdBro/"$mode".py $exchange $rooting_key
+	 websocketd --port=7777 $cert $key "$DIR"/websocketdBro/"$mode".py $exchange $rooting_key
 fi
