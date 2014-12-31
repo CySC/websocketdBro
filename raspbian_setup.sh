@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 testcommand()
 {
  	if [ -z "$(command -v $1)" ]
