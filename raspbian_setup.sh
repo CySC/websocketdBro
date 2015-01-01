@@ -1,4 +1,5 @@
 #!/bin/bash
+DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd );
 testcommand()
 {
  	if [ -z "$(command -v $1)" ]
@@ -23,13 +24,43 @@ else
 	sudo apt-key add rabbitmq-signing-key-public.asc
 	rm rabbitmq-signing-key-public.asc
 	sudo apt-get install rabbitmq-server
-	sudo cp ./setupfiles/rabbitmq.config /etc/rabbitmq/rabbitmq.config
+	sudo cp "$DIR"/setupfiles/rabbitmq.config /etc/rabbitmq/rabbitmq.config
 	sudo service rabbitmq-server restart
 	if $(testcommand rabbitmq-server)
 	then
 		ok "rabbitMQ server  setup complete!"
+	else
+		poop "rabbitMQ server setup failed!"
 	fi
 fi
+
+if $(testcommand git)
+then
+        ok "git allready installed!"
+else
+        sudo apt-get install git-core
+        if $(testcommand git)
+        then
+                ok "git setup complete!"
+        else
+                poop "git setup failed!"
+        fi
+fi
+
+if $(testcommand pip)
+then
+	ok "pip allready installed!"
+else
+	sudo apt-get install python-setuptools
+	sudo easy_install pip
+	if $(testcommand pip)
+	then
+		ok "pip setup complete!"
+	else
+		poop "pip setup failed!"
+	fi
+fi
+#reinstall to avoid version mismatch 
 sudo pip install pika==0.9.8
 #echo "now we will test if everything works fine..."
 #./startExample
