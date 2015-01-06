@@ -7,7 +7,7 @@
   }
 
   // setup websocket with callbacks
-  var ws = new WebSocket('ws://192.168.2.16:7777/');
+  var ws = new WebSocket('wss://192.168.2.16:7777/');
   ws.onopen = function() {
     log('CONNECT');
   };
