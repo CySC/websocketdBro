@@ -24,7 +24,7 @@ else
 	sudo apt-key add rabbitmq-signing-key-public.asc
 	rm rabbitmq-signing-key-public.asc
 	sudo apt-get install rabbitmq-server
-	sudo cp "$DIR"/setupfiles/rabbitmq.config /etc/rabbitmq/rabbitmq.config
+	[ ! -f /etc/rabbitmq/rabbitmq.config ] && sudo cp "$DIR"/setupfiles/rabbitmq.config /etc/rabbitmq/rabbitmq.config;
 	sudo service rabbitmq-server restart
 	if $(testcommand rabbitmq-server)
 	then
