@@ -15,6 +15,19 @@ ok(){
 poop(){
 	echo -e "[ \e[1;31 FAILED \e[0m ] $1"
 }
+if $(testcommand websocketd)
+then
+	ok "websocketd allready installed!"
+else
+	sudo cp "$DIR"/websocketd_arm/websocketd /usr/bin/websocketd
+	if $(testcommand websocketd)
+        then
+                ok "websocketd  setup complete!"
+        else
+                poop "websocetd setup failed!"
+        fi
+
+fi
 if $(testcommand rabbitmq-server)
 then
 	ok "rabbitMQ server allready installed!"
