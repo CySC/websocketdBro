@@ -1,5 +1,5 @@
 #websocketdBro
-####A wobsocketd broadcaster based on AMQ and webocketd.
+####A wobsocketd broadcaster based on AMQ and websocketd.
 
  WebsocketdBro extends websocketd so that we can run only one instance of the script and broadcast the results to all the clients that connectto the websocketd server, an issue that attracted a lot of dicussion in websocketd's official repo. 
 ##Installation
