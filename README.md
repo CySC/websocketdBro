@@ -15,7 +15,7 @@ The first version of websocketdBro accepts two modes, "publisher" and "consumer"
 
 ###-e: Exchange Name (optional-default name: "default")
 The exchange name used to publish/consume messages. If you wish your publisher to publish to the example exchange and a conumer to consume from that you need to specify that name in both cases using the -e flag (-e exchange).
-If you are not using any other exchanges on your system then it is safe to omit the flag and they will both use the "default" exchange.
+If the "default" exchange is not used for any other purpose,  then it is safe to omit the flag and they will both use the "default" exchange. (we do encourage you though to specify an echange explicitly for your app rather than usig default)
 ###Example Usage
 ```sh
     ./bro -m consumer -e example
